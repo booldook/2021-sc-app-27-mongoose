@@ -17,7 +17,6 @@ module.exports = async () => {
         const model = require(path.join(__dirname, file));
         db[model.modelName] = model;
       })
-    console.log(db)
     return db
   }
   catch (err) {
