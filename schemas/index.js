@@ -6,7 +6,10 @@ module.exports = async () => {
   try {
     const connect = await mongoose.connect(url);
     console.log('mongoose server start')
-    return connect
+
+    const Users = require('./Users')
+    const Books = require('./Books')
+    return { Users, Books }
   }
   catch (err) {
     console.log(err)
