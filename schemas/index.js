@@ -6,7 +6,7 @@ const url = `mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}?retryWrites=true&w=m
 
 module.exports = async () => {
   try {
-    const connect = await mongoose.connect(url);
+    await mongoose.connect(url);
     console.log('mongoose server start')
     
     const db = {}
