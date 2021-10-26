@@ -1,0 +1,48 @@
+<script>
+  /* function User(_name, _age) {
+    this.name = _name;
+    this.age = _age;
+  }
+  User.prototype.getName = function() {
+    return this.name;
+  }
+  User.prototype.setName = function(_name) {
+    this.name = _name;
+  }
+  User.prototype.getAge = function() {
+    return this.age;
+  }
+  User.prototype.setAge = function(_age) {
+    this.age = _age;
+  }
+  User.prototype.introduce = function() {
+    return `${this.name} 입니다. 나이는 ${this.age}입니다.` 
+  } */
+
+  class User {
+    constructor(_name, _age) {
+      this.name = _name;
+      this.age = _age;
+    }
+    getName() {
+      return this.name;
+    }
+    setName(_name) {
+      this.name = _name;
+    }
+    getAge() {
+      return this.age;
+    }
+    setAge(_age) {
+      this.age = _age;
+    }
+    introduce() {
+      return `${this.name} 입니다. 나이는 ${this.age}입니다.`
+    }
+  }
+
+  const hongkd = new User('Hong.k.d', 28);
+  const hongks = new User('Hong.k.s', 25);
+  console.log(hongkd.introduce());
+  console.log(hongks.introduce());
+</script>

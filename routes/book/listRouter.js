@@ -2,7 +2,7 @@ const path = require('path')
 const express = require('express')
 const createError = require('http-errors')
 const router = express.Router()
-const Books = require('../../schemas/Books')
+const { Books, Users } = require('../../schemas')
 
 router.use('/create', async (req, res, next) => {
   try {
@@ -11,9 +11,8 @@ router.use('/create', async (req, res, next) => {
       writer: '길동이',
       content: '아버지를 아버지라...',
     })
-    console.log(new Date().getHours())
     const rs = await book.save()
-    res.json(rs)
+    res.json(rs);
   }
   catch(err) {
     next(createError(err))
