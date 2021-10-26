@@ -33,5 +33,25 @@ userSchema.pre('save', async function (next) {
   }
 })
 
+userSchema.statics.login = async function(_id, _pw) {
+  try {
+    const user = await this.findOne({ userid: _id })
+    const rs = await bcrypt.compare(_pw, user.userpw)
+    return rs ? user : null
+  }
+  catch(err) {
+    throw new Error(err)
+  }
+}
+
+userSchema.statics.findByName = async function(_name) {
+  try {
+    return await this.find({ username: _name })
+  }
+  catch(err) {
+    throw new Error(err)
+  }
+}
+
 
 module.exports = mongoose.model('Users', userSchema)

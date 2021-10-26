@@ -19,4 +19,28 @@ router.get('/create', async (req, res, next) => {
   }
 })
 
+router.get('/login', async (req, res, next) => {
+  try {
+    const user = await Users.login('booldook', '1234');
+    user 
+      ? res.status(200).json(user) 
+      : res.status(401).json({ err: 'loginFail' })
+  }
+  catch(err) {
+    next(createError(err))
+  }
+})
+
+router.get('/find', async (req, res, next) => {
+  try {
+    const users = await Users.findByName(req.query.name);
+    users 
+      ? res.status(200).json(users) 
+      : res.status(401).json({ err: 'Not found Result' })
+  }
+  catch(err) {
+    next(createError(err))
+  }
+})
+
 module.exports = router
